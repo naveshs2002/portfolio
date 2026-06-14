@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0f172a;
+  color: #e2e8f0;
+  overflow-x: hidden;
+}
+
+/* Light mode overrides */
+.light body,
+html:not(.dark) body {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Sora', sans-serif;
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #38bdf8, #8b5cf6);
+  border-radius: 10px;
+}
+
+/* ===== Animated gradient background ===== */
+.animated-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  background: linear-gradient(120deg, #0f172a 0%, #1e1b4b 35%, #0f172a 70%, #042f2e 100%);
+  background-size: 300% 300%;
+  animation: gradientShift 18s ease infinite;
+}
+
+.light .animated-bg,
+html:not(.dark) .animated-bg {
+  background: linear-gradient(120deg, #f8fafc 0%, #e0f2fe 35%, #f8fafc 70%, #ede9fe 100%);
+  background-size: 300% 300%;
+}
+
+/* ===== Glassmorphism ===== */
+.glass {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.25rem;
+}
+
+.light .glass,
+html:not(.dark) .glass {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06);
+}
+
+.glass-strong {
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 1.5rem;
+}
+
+.light .glass-strong,
+html:not(.dark) .glass-strong {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+/* Glow hover */
+.hover-glow {
+  transition: box-shadow 0.35s ease, transform 0.35s ease, border-color 0.35s ease;
+}
+.hover-glow:hover {
+  box-shadow: 0 0 35px rgba(56, 189, 248, 0.35), 0 0 70px rgba(139, 92, 246, 0.15);
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: translateY(-6px);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(90deg, #38bdf8, #8b5cf6, #14b8a6);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientShift 6s ease infinite;
+}
+
+/* Section spacing helper */
+.section {
+  padding: 6rem 1.25rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 8rem 2.5rem;
+  }
+}
+
+/* Eyebrow label */
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.25em;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #38bdf8;
+}
+
+/* Progress bar track */
+.progress-track {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+.light .progress-track,
+html:not(.dark) .progress-track {
+  background: rgba(15, 23, 42, 0.08);
+}
+.progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #38bdf8, #8b5cf6, #14b8a6);
+}
